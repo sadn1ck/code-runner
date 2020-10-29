@@ -94,6 +94,8 @@ github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:
 github.com/prometheus/procfs v0.0.0-20180125133057-cb4147076ac7/go.mod h1:c3At6R/oaqEKCNdg8wHV1ftS6bRYblBhIjjI8uT2IGk=
 github.com/raydwaipayan/test-runner v0.0.0-20201027055154-66f7921c0653 h1:xd4zLtKUFlSwz2gw1m5GnEN4w2yH3gF27QFMTiKgQmQ=
 github.com/raydwaipayan/test-runner v0.0.0-20201027055154-66f7921c0653/go.mod h1:E325q7sgauLqMMBQFZixFqTOnuadROUhm/ZlCriczgY=
+github.com/raydwaipayan/test-runner v0.0.0-20201029172450-bc3b4ca8cea4 h1:cvr0pkPDUVkYR1NFRjnylXIQL48AHgWpaPlbzGiJkkc=
+github.com/raydwaipayan/test-runner v0.0.0-20201029172450-bc3b4ca8cea4/go.mod h1:E325q7sgauLqMMBQFZixFqTOnuadROUhm/ZlCriczgY=
 github.com/russross/blackfriday/v2 v2.0.1/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
 github.com/shurcooL/sanitized_anchor_name v1.0.0/go.mod h1:1NzhyTcUVG4SuEtjjoZeVRXNmyL/1OwPU0+IJeTBvfc=
 github.com/sirupsen/logrus v1.4.1/go.mod h1:ni0Sbl8bgC9z8RoU9G6nDWqqs/fq4eDPysMBDgk/93Q=

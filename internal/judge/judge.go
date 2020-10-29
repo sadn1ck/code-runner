@@ -28,25 +28,29 @@ func SubmitHandler(w http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		panic(err)
 	}
-	log.Println(sub.Code)
 	status := handleResponseCode(sub.Code)
-	log.Println(status)
+	var response string
+	if status == "OK" {
+		response = "{\"message\": \"AC\"}"
+	} else {
+		response = "{\"message\": \"" + status + "\"}"
+	}
+	log.Println(response)
 	switch req.Method {
 	case "POST":
 		w.WriteHeader(http.StatusCreated)
-		w.Write([]byte(`{"message": "POST called"}`))
+		w.Write([]byte(response))
 	default:
 		w.WriteHeader(http.StatusCreated)
-		w.Write([]byte(`{"message": "!POST"}`))
+		w.Write([]byte(`{"message": "Invalid request"}`))
 	}
 }
 
 func handleResponseCode(Code string) string {
 	// fetch these from question storage with appropriate calls (more endpoints!)
-	in := []string{""}
-	out := []string{"Hey"}
-	log.Println("Reaches here")
+	in := []string{"2"}
+	out := []string{"4"}
 	res := run.Evaluate(Code, "cpp", "a.cpp", in, out, 1, 1, 500*1024*1024)
-	log.Println(res)
-	return "AC"
+	// log.Println(res.Status)
+	return res.Status
 }
