@@ -9,7 +9,8 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", judge.SubmitHandler)
+	http.HandleFunc("/submit", judge.SubmitHandler)
+	http.HandleFunc("/status", judge.StatusHandler)
 	PORT := 3000
 	log.Printf("Server starting at port %d.....", PORT)
 
