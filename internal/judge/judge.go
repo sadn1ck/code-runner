@@ -3,7 +3,6 @@ package judge
 import (
 	"encoding/json"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"strings"
 
@@ -65,21 +64,23 @@ func getSubmissionID(currentSubmission Submission) string {
 	res := run.Evaluate(currentSubmission.Code, "cpp", "a.cpp", in, out, 2, 1, 500*1024*1024)
 
 	var statusOfCurrent string
-
-	results := res.Result
-	for index := range results {
-		if results[index] != "ACCEPTED" {
-			statusOfCurrent = results[index]
-			break
+	if res.Status != "OK" {
+		statusOfCurrent = res.Status
+	} else {
+		results := res.Result
+		for index := range results {
+			if results[index] != "ACCEPTED" {
+				statusOfCurrent = results[index]
+				break
+			}
+			statusOfCurrent = "ACCEPTED"
 		}
-		statusOfCurrent = "ACCEPTED"
 	}
 	for index := range questionStatus {
 		if questionStatus[index].SubmissionID == generatedSubmissionID {
 			questionStatus[index].Status = statusOfCurrent
 		}
 	}
-	log.Println(res.Result)
 	return generatedSubmissionID
 }
 
